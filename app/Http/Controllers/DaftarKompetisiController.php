@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DaftarKompetisiModel;
+use App\Models\DaftarPesertaModel;
 use Illuminate\Http\Request;
 
 class DaftarKompetisiController extends Controller
@@ -14,9 +15,14 @@ class DaftarKompetisiController extends Controller
      */
     public function index()
     {
+        $kompetisi= DaftarKompetisiModel::latest();
+
+        if(request('search')){
+            $kompetisi->where('nama_kompetisi','like','%' . request('search') . '%');
+        }
         return view('admin.kompetisi.index',[
             'title' => 'Daftar Kompetisi',
-            'kompetisi' => DaftarKompetisiModel::all()
+            'kompetisi' => $kompetisi->get()
         ]);
     }
 

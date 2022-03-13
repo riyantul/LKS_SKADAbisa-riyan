@@ -19,7 +19,21 @@
             {{ session('edit') }}
             @endif
             <div class="card-body">
+              <div class="card-header">
                 <a href="/daftarkompetisi/create" class="btn btn-primary mb-3">Create New Kompetisi</a>
+              <div class="card-tools">
+<form action="/daftarkompetisi">
+                  <div class="input-group input-group-sm" style="width: 250px; ">
+                    <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ request('search') }}">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+</form>
+              </div>
+            </div>
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -48,15 +62,6 @@
                 </tr>
                      @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th>No</th>
-                    <th>Nama Kompetisi</th>
-                    <th>Tanggal Kompetisi</th>
-                    <th>Kuota peserta</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->

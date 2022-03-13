@@ -13,7 +13,22 @@
             {{ session('pesan') }}
             @endif
             <div class="card-body">
-                <a href="/listuser/create" class="btn btn-primary mb-3">Create New User</a>
+              <div class="card-header">
+                  <a href="/listuser/create" class="btn btn-primary mb-3">Create New User</a>
+                <div class="card-tools">
+<form action="/listuser">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                      <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ request('search') }}">
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-default">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+</form>
+                </div>
+              </div>
+            </div>
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -40,14 +55,6 @@
                 </tr>
                      @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->

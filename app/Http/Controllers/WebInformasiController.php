@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarKompetisiModel;
 use Illuminate\Http\Request;
 use App\Models\DaftarPesertaModel;
 
@@ -14,10 +15,14 @@ class WebInformasiController extends Controller
         return view('webinformasi.profilperusahaan');
     } 
     public function lomba(){
-        return view('webinformasi.lomba');
+        return view('webinformasi.lomba',[
+            'lomba'=> DaftarKompetisiModel::all()
+        ]);
     } 
-    public function pesertadaftarlomba(){
-        return view('webinformasi.pesertadaftarlomba');
+    public function pesertadaftarlomba($id){
+        return view('webinformasi.pesertadaftarlomba',[
+            'lomba'=> DaftarKompetisiModel::find($id)
+        ]);
     } 
     public function store(Request $request){
         $validateData=$request->validate([
@@ -28,6 +33,9 @@ class WebInformasiController extends Controller
             'jenis_lomba' => 'required'
         ]);
         DaftarPesertaModel::create($validateData);
-        return redirect()->to('/pesertadaftarlomba')->with('tambah', 'berhasil daftar kompetisi');
+        return redirect()->to('/lomba')->with('tambah', 'berhasil daftar kompetisi');
+    } 
+    public function game(){
+        return view('webinformasi.game');
     } 
 }

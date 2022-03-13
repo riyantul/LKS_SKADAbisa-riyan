@@ -37,8 +37,8 @@ Route::post('/register',[LoginController::class, 'store']);
 Route::get('/logout',[LoginController::class, 'logout']);
 Route::get('/profil' ,[WebInformasiController::class,'profil']);
 Route::get('/lomba' ,[WebInformasiController::class,'lomba']);
-Route::get('/pesertadaftarlomba' ,[WebInformasiController::class,'pesertadaftarlomba']);
-Route::post('/pesertadaftarlomba' ,[WebInformasiController::class,'store']);
+Route::get('/pesertadaftarlomba/{id}' ,[WebInformasiController::class,'pesertadaftarlomba']);
+Route::post('/pesertadaftarlomba/create' ,[WebInformasiController::class,'store']);
 Route::get('/game' ,[WebInformasiController::class,'game']);
 
 

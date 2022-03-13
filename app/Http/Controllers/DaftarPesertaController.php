@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarPesertaModel;
 use Illuminate\Http\Request;
 
 class DaftarPesertaController extends Controller
@@ -14,7 +15,8 @@ class DaftarPesertaController extends Controller
     public function index()
     {
         return view('admin.peserta.index',[
-            'title'=> 'Daftar Peserta'
+            'title'=> 'Daftar Peserta',
+            'peserta' => DaftarPesertaModel::all()
         ]);
     }
 

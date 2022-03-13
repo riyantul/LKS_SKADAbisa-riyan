@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarKompetisiModel;
+use App\Models\DaftarPesertaModel;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -16,7 +18,9 @@ class AdminController extends Controller
     {
         return view('admin.index',[
             'title' => 'Dashboard admin',
-            'jumlah' => User::count()
+            'user' => User::count(),
+            'peserta' => DaftarPesertaModel::count(),
+            'kompetisi' => DaftarKompetisiModel::count(),
         ]);
     }
 

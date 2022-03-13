@@ -213,8 +213,7 @@
     justify-content: space-between;
 }
 .kotak{
-    width: 250px;
-    background-color: #c1ebff;
+    width: 250px; 
     margin: 5px;
 }
 .kotak .text{
@@ -271,4 +270,16 @@ button{
     border: none;
     cursor: pointer;
 
+}
+
+.isi-1{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+}
+.container .caption h1{
+    color: rgb(68, 68, 68);
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
 }

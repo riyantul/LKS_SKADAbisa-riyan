@@ -11,13 +11,13 @@
                         <div class="kotak">
                             <div class="image"><img src="{!! asset('img/logolomba.png') !!}" width="100%"></div>
                             <div class="text">
-                                <h2>Progammer</h2>
+                                <h2>{{ $lomba->nama_kompetisi }}</h2>
                                 <h4><a href="/pesertadaftarlomba">Learn More..</a></h4>
                             </div>
                         </div>
                         <div class="formulir">
                             <div class="h1">Daftar Disini</div>
-                            <form action="/pesertadaftarlomba" method="post">
+                            <form action="/pesertadaftarlomba/create" method="post">
                             @csrf
                                 <div class="input">
                                     <div class="form-group">
@@ -33,7 +33,7 @@
                                       <input type="text" name="alamat" placeholder="Alamat..">  
                                     </div>
                                     <div class="form-group">
-                                      <input type="text" name="jenis_lomba" placeholder="Jenis Lomba..">  
+                                      <input type="text" name="jenis_lomba" placeholder="Jenis Lomba.." readonly value="{{ $lomba->nama_kompetisi }}">  
                                     </div>
                                     <div class="form-group">
                                         <button type="submit">Daftar</button>

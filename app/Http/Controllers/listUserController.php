@@ -15,9 +15,14 @@ class listUserController extends Controller
      */
     public function index()
     {
+        $user = User::latest();
+
+        if(request('search')){
+            $user->where('name' ,'like', '%' . request('search') . '%');
+        }
         return view('admin.user.index',[
             'title' => 'list User',
-            'user' => User::all()
+            'user' => $user->get()
         ]);
     }
 
